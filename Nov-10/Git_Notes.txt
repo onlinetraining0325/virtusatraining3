@@ -77,4 +77,6 @@ git log : Used to display history of the git commands.
 
 git diff : Used to find the diff between old commit (vs) current stage.
 
+git checkout filename : Used to cancel the changes before staging. 
+
 
