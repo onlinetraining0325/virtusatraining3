@@ -1,3 +1,6 @@
 Hi How are You
 what are you doing
 Welcome to All
+What are you doing now
+This is rebase example going on
+thank you All
