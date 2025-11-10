@@ -98,6 +98,10 @@ git pull : Used to pull/download files from other branch
 
 git pull origin branch_name : 
 
+git pull origin lokesh : From lokesh branch all files getting downloaded.
+
+
+
 
 
 
