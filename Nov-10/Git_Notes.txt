@@ -71,6 +71,8 @@ git push origin branch_name
 
 git push origin main
 
+git status : Used to display the current status of the git. 
+
 
 
 
