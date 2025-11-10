@@ -73,6 +73,8 @@ git push origin main
 
 git status : Used to display the current status of the git. 
 
+git log : Used to display history of the git commands. 
 
+git diff : Used to find the diff between old commit (vs) current stage.
 
 
