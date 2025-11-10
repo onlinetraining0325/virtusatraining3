@@ -100,6 +100,25 @@ git pull origin branch_name :
 
 git pull origin lokesh : From lokesh branch all files getting downloaded.
 
+git branch -b branch_name : It creates a branch and enters 
+
+git branch -D branch_name : Used to remove the branch (non-empty also)
+
+
+Rebase ensures the starting point of a branch.
+
+This concept can be used when we want to isolate a branch as some drastic damage happend.
+
+In Rebase
+
+Git removes the changes temporirly
+Then it adds the lastest ork rom the branch you rebased
+Then it reapplies the changes on it
+New commit version will be created. 
+
+
+
+
 
 
 
