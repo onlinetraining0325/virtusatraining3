@@ -1,0 +1,76 @@
+GIT
+
+Version Control System : It is all about managing multiple versions of
+documents, programs and websites etc...
+
+   -> Production env projects use version control tool
+   -> Essential for team projects, but also very useful for 
+	individual projects. 
+
+These kind of operations we need to make it then GIT plays 
+vital role in this. 
+
+There we have one centralized version control system, 
+the central server repo holds the master copy of your project, and everytime
+the code gets updated after verification (pull request) - and all the history
+getting being recorded. 
+
+Advantages : 
+____________
+
+	-> Changes will be recorded and updated after approval
+	-> Always we can deal with working copy
+	-> Identify the changes to be done by individual 
+	-> Only working code to be commited 
+
+
+Git contains 4 major partitions known as
+
+1) Working Directory : This the default directory where (repo) we can do 
+actual changes and coding. 
+
+2) Staging Area : This is the place where we need to stage files or data. Ensure
+the staged files are to be merged to the repository as working code. 
+
+3) Local Repository : This is the repository which exists in the user system, as we need to finalize or commit the changes before remote, we need to commit here. Once you commit the changes here then only we can add to remote. 
+
+4) Remote Repository : This is the repository, where we can commit our changes and see in remote location. 
+
+
+How to Download files from GitHub repository first time 
+
+git clone : This command allows you to download the files from GitHub repository specified. 
+
+
+Step 1 :
+
+To stage a file, we need to use the command as
+
+git add 
+
+git add <filename>
+
+To add all files including changes 
+
+git add .
+
+
+Step 2: 
+
+To Add the file to the local repository, use the command as
+
+git commit -m "message"
+
+git commit -m "My First Commit"
+
+Step 3 : 
+
+To add a file to the remote repository, 
+
+git push origin branch_name 
+
+git push origin main
+
+
+
+
