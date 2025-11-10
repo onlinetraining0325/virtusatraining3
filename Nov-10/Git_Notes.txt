@@ -77,4 +77,27 @@ git log : Used to display history of the git commands.
 
 git diff : Used to find the diff between old commit (vs) current stage.
 
+git checkout filename : Used to cancel the changes before staging. 
+
+git reset HEAD file_name : Used to unstage a file. 
+
+git reset HEAD Greeting.txt : Used to unstage the given file. 
+
+git branch branch_name : Used to create a branch
+
+git branch lokesh
+
+git branch : Used to list out the branches
+
+git checkout branch_name : Used to switch to the branch
+
+git checkout lokesh :
+
+git pull : Used to pull/download files from other branch
+
+git pull origin branch_name : 
+
+
+
+
 
