@@ -79,6 +79,7 @@ git diff : Used to find the diff between old commit (vs) current stage.
 
 git checkout filename : Used to cancel the changes before staging. 
 
+<<<<<<< HEAD
 git reset HEAD file_name : Used to unstage a file. 
 
 git reset HEAD Greeting.txt : Used to unstage the given file. 
@@ -100,4 +101,6 @@ git pull origin branch_name :
 
 
 
+=======
+>>>>>>> 42ad02ed2cc53804dec89cede2de4e9cb263d6d5
 
