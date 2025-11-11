@@ -1,0 +1,164 @@
+
+SDLC (Software Development Life Cycle) 
+
+   It is a process used by the software industry to design, develop and test high quality 
+softwares.  SDLC aims to produce a high-quality software that meets or exceeds 
+customer expectations. 
+
+SDLC contains total 6 phases known as
+
+1) Planning and Requirement analysis
+
+   Planning is the crucial step, when we need to start any project or
+requirement from the client, we need to check the factors of
+
+	-> Infra
+	-> Manpower
+	-> Timelines
+	-> Costing 
+
+The information from this analysis forms the building block of the project,
+The quality of the project is result of planning. Here the basic 
+project designed with all available information. 
+
+2) Defining Requirements : In this stage, all the requirements for the
+target software are applied. These requirements sent to higher authorities
+for approval, there we can see for alternatives for this. After fulfillment,
+SRS (Software Requirement Specification) document created. This is a sort
+of document that specifies all those things that need to be defined and created 
+during the entire project cycle.
+
+3) Design : It is the heart for entire project, which defines the flow of 
+the project, as what is the entry point, what are the timelines for all
+features, who is responsible for what. If any slippage how to handle. This design document can be provided by Product Architect known as DDS (Design Document Specification), After finalizing only it would be released for team members. 
+
+4) Development : In this stage, we need to choose any programming language to develop the application as per DDS, Developers must follow coding guidelines defined by their organization and programming tools like compilers etc... As the end product getting developed. 
+
+5) Testing : This stage where we need to test the product with all corner case scenarios, if any defects found, then they are send for escalation and rectification. 
+
+6) Maitenance : Once product tested, it is ready to use and deployed, here we need to provide support to the product for specific years as per agreement. 
+
+
+Testing : 
+__________
+
+
+1) Defect : If tester identifies something known as defect.
+
+2) Bug : If programmer accepts the defect known as bug. 
+
+*** All defects are not bugs, but all bugs are defects ***
+
+3) Error : If programmer identifies any mistake in your code known as error. 
+
+4) Fatal : If client identifies mistake in your code known as fatal.
+
+
+Waterfall Model : Easiest way to implement SDLC, 
+the whole process divided into separate phases. Here, we cannot go back to previous phase
+No requirements will be added at the middle of the project,
+No Preview of the product allowed.
+High amount of risk and uncertainity.
+
+V model : (Validation and Verification) 
+
+Validation always happens on the product, where Verification is all about the process. 
+
+Agile :  Agile is a software development methodology to build software w.r.t. 4 iterations
+
+	-> Design
+
+	-> Code
+
+	-> Integrate
+
+	-> Test
+
+Agile will have major role people as 
+
+1) Scrum Master
+
+	Scrum master is a team lead or architect level person in team, who helps the team members to follow agile process, as they can meet their commitments. 
+
+	-> Enable co-operation between all roles and functions
+
+	-> Remove any gaps
+
+	-> Solve the team members from any disturbances
+
+	-> Work with organization and track the process 
+
+
+			-> Daily Standup Meeting
+
+			-> Planned Meetings
+
+			-> Demos
+
+			-> Review
+
+			-> Retrospective Meetings
+
+
+2) Product Owner
+
+	He is the one who drives the product from business perspective. 
+
+	   -> Define the requirements and prioritize their values
+
+	   -> To determine the release date and contents
+
+	   -> To take an active role in iteration planning and release planning meetings
+
+	   -> To ensure that team is always working on most valued requirement
+
+	   -> To represent voice of customer
+
+	   -> Accept the user stores that meet the definition of done and dfined w.r.t. 
+		acceptance criteria 
+
+
+
+3) Cross Functional Team 
+
+Every agile team will have 
+
+1) Product owner 1) Scrum master 3 to 4 developers 1 TL 2 testers 3 db persons.
+
+
+User Story : It is a requirement that user to be performed as a functionality. 
+
+User Story talks about what to be done.  It defines what programmer needs. 
+
+User Story defined into small tasks.
+
+
+Example : 
+
+Take Customer Module as an example 
+
+
+Customer Module (User Story)
+
+	-> Task 1 (Customer Registration) 2 hrs
+	-> Task 2 (Customer Login) 1/2 hr
+
+	-> Task 3 (Customer DashBoard) 16 hrs 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
