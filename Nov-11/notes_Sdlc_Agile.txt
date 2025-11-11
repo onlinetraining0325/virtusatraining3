@@ -146,6 +146,167 @@ Customer Module (User Story)
 	-> Task 3 (Customer DashBoard) 16 hrs 
 
 
+How to validate the user story : 
+
+	-> All the related code to be checked in
+	-> All unit cases to be passed
+	-> Help Text written
+	-> All acceptance test cases have been passed
+	-> Product owner needs to accept
+	-> Ready to deliver
+
+What is Acceptance Criteria
+
+In this the user story functionality, behavoiur and performance everything monitored and testd. 
+
+At last all parameters met then only its approved
+
+What is Daily Standup Meeting : 
+
+Conducted in team members roughly for 15 mins
+
+Every member has to answer
+
+	-> What i Did yesterday
+
+	-> What i will do today
+
+	-> Any issues i am facing 
+
+What is Product Backlog : 
+
+It will be created by the product owner, 
+
+-> Contains tasks required to be completed with dead lines
+
+-> Team members who took the ownership of the task
+
+-> If any individual overloaded with tasks, then actioni to be taken place. 
+
+It acts as a roadmap to your project. 
+
+
+User story strictly follows principle known as
+
+INVEST 
+
+Independent
+Negotiable
+Valuable
+Estimable
+Small
+Testable
+
+Agile follows priorities of MOSCOW 
+
+Must Have
+
+Should Have
+
+Could Have
+
+Wont Have 
+
+Iterations are measures 
+
+how to add the new requirements 
+
+What is Meeting
+
+What is RetroSpective Meeting 
+
+
+
+Sprint  -> Agile projects make progress in a series of sprints. An iteration of work during which an increment of product functionality is implemented. 
+
+Product to be designed, coded and tested during sprint. 
+
+Sprint to be reviewed weekly worst case calendar month. 
+
+The basic rule for sprint is, the team must not be interrupted with additional requiremnts. Any  new requirements always in next sprint only. 
+
+
+How the sprint will be planned
+
+
+Assume from product backlog (Healthcare project) team of 5 members to be taken PatientReports module
+
+     -> Create a Sprint Backlog document 
+
+	-> Task to be estimated in 1-16 hrs 
+
+	-> its to be done by scrum master
+
+	That Sprint backlog contains as 
+
+	 (coding) 16 hrs
+
+	(UI) 14 hrs
+
+	(Testing) 4hrs
+
+	(Coding for ApproveDeny Module) 16hrs
+
+	(Coding for InsuranceApproval) 16hrs 
+	Perormance testing 12hrs 
+
+
+
+Another Example : 
+
+Take GIT as product Backlog 
+
+   Git Lifecycle (0.5 hrs)
+   Git basic commands (1 hrs)
+   Git Branches (0.5 hrs)
+   Git Merge Conflicts (2 hrs)
+   Git Rebase (1 hr)
+
+Any new requirement to be added in new sprint. 
+
+Sprint Meeting (Review) 
+
+	
+
+Sprint RetroSpective Meeting
+
+
+  What went well
+
+  What are the areas of improvement
+
+  Actions to be taken place 
+
+
+When all requirements happend sprint closure takes place.
+
+Sprint Termination : 
+
+  Team terminates as cannot meeting goal
+  Product Owner terminates because of change of requirement
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
