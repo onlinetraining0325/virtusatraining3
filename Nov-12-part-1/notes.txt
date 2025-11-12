@@ -97,6 +97,67 @@ for(initialization;condition;increment/decrement) {
   statement(s);
 }
 
+Array : An array is the finite ordered set of homogeneous elements, means all the elements belongs to same data type. 
+
+All the elements of array are stored in successive memory locations. 
+
+int[] a = new int[]{12,4,55,23} means
+
+a[0]=12;
+a[1]=4;
+a[2]=55;
+a[3]=23;
+
+int[] a = new int[]{423,44,22,234,221};
+//        for(int i=0;i<a.length;i++) {
+//            System.out.println(a[i]);
+//        }
+        for(int i : a) {
+            System.out.println(i);
+        }
+
+In above code, at first i points to the first element in array A, after processing first element, it checks next element is there or not by using hasMoreElements(), if hasMoreElements() returns true, it moves to the next element by using nextElement().  It repeats as soon as hasMoreElements() returns true.
+
+There are 2 types of memories as 
+
+	(i) Stack
+
+	(ii) Heap
+
+*** Value types will be stored in STACK memory, and reference types will be stored in HEAP memory. ***
+
+Boxing and Unboxing : The concept of converting value types to reference type known as boxing, and reference types to value types known as unboxing.  Object is the data type, that which can be used for boxing and unboxing. 
+
+
+int a = 12.5;
+int a = 12;
+int a = "Hello";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
