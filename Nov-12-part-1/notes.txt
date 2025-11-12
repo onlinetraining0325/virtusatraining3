@@ -170,6 +170,22 @@ There are 2 types of constructors known as
 
 ToString() : this method will be invoked automatically once you print the object. This method will have String rep. 
 
+Write a Program to calculate current bill as 
+
+first 90 units its 1rs
+
+91 to 150 units 1.5rs
+
+151 to 200 units 2rs
+
+201 to 240 units 2.5 rs
+
+240 + units 3
+
+Assume units are 100 then bill is (90 * 1)  + (10 *1.5) 
+
+Assume units are 160 then (90 * 1) + (60 * 1.5) + (10 * 2)
+
 
 
 
