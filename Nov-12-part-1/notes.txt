@@ -1,0 +1,114 @@
+Data Types : 
+_____________
+
+There are 2 types of data types as 
+
+(i) value types
+
+    int 
+    float
+    double
+    char
+    Boolean 
+
+etc...
+
+(ii) reference types 
+
+String
+Object
+user-define class 
+
+*** Value types will be stored in STACK memory and reference types will be stored in HEAP memory ***
+
+You can define a method in java as 
+
+access-modifier return-type method(parameter(s)) {
+...
+...
+...
+}
+
+You can create an object to the class, as 
+
+class_name obj = new class_name();
+
+The default package in java is lang, you can define as java.lang 
+
+The top level class in java is java.lang.Object 
+
+Scanner class allows you to read the custom input from the keyboard. 
+
+It is from util package. 
+
+nextInt()
+next()
+nextLine()
+nextDouble()
+
+Control Structures : Used to define the flow of the program. There are 2 types of control structures known as 
+
+(i) Branching
+
+	if...else : Executes the statements based on the condition.
+		
+		if (condition) {
+			statement(s);
+		} else {
+		    statement(s);
+		}
+
+switch...case : Used to define the menu-driven programs. 
+
+switch(expression) {
+   case expression1 : statement(s);
+		      break;
+   case expression2 : statemenet(s);
+		      break;
+    ...
+    ...
+    ...
+}
+
+What is yield : 
+
+Yield keyword lets us exists a switch expression by returning a value that becomes the value of switch expression.
+This means we can assign the value of a switch expression to a variable. 
+
+Lastly, by using yield in switch... we can get implicit check that we are covering all cases. 
+
+(ii) Looping 
+
+while loop : This loop executes all the statements repeatedly until the condition remains true, if the condition remains false, then it comes out of the loop.  For every loop, basically there are 3 phases known as 
+
+	(i) Initialization : Performed at the beginning of the loop
+
+	(ii) Condition : Performed at the conditional part of the loop.
+
+	(iii) Increment/Decrement : Performed before closing the loop.
+
+while(condition) {
+   statement(s);
+}
+
+for loop : This loop executes all the statements repeatedly until the condition remains true, if the condition remains false, then it comes out of the loop. 
+
+for(initialization;condition;increment/decrement) {
+  statement(s);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
