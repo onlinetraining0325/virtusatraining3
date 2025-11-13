@@ -1,0 +1,67 @@
+static variables : These are the variables, that which retains values irrespective of 
+type of objects. 
+
+Inheritance : The concept of deriving a new class from already 
+existing class known as inheritance, the class which derived known 
+as derived class, the class from which its derived known as base class.
+
+Through inheritance, we can reduce the size of the program. 
+
+Syntax : 
+
+class First {
+...
+...
+...
+}
+
+class Second extends First {
+...
+...
+...
+}
+
+Once you create an object to Second class, then you can access all 
+public/protected and friendly members of base class. 
+
+super keyword : If you want to pass values from derived class to base class, then we need the help of super keyword. It has 2 forms as 
+
+(i) super as a keyword
+
+(ii) super as a constructor 
+
+Abstract Class : A class, that which can be created but not implemented and instantiated known as abstract class.  Abstract class contains abstract and non-abstract methods, only abstract methods needs to be overrided mandatory by the derived class. 
+
+abstract class Abstract_class
+{
+   abstract method1();
+   abstract method2();
+}
+
+
+1) Write a program to display a number from (1 to 9999) in rowman format
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
