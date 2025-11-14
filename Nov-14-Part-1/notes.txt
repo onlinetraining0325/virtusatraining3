@@ -1,0 +1,29 @@
+Collections : Arrays are static data structures means, once they are assigned
+we cannot alter the size. So, if want to add the elements irrespective of size
+then we need the help of collections. 
+
+Collections can grow to any size unlike arrays. 
+
+Collections are from java.util package 
+
+Collections stores data w.r.t. Object format. 
+
+Collection framework contains major interfaces as
+
+1) List : Allows you to add elements in sequential order. There are major collection
+classes falling under List interface are 
+
+   (i) ArrayList
+
+   (ii) Vector 
+
+
+
+2) Set : Used to eliminate duplicate entries at the time of display.  HashSet and LinkedHashSet are falling under Set interface. 
+
+3) SortedSet : This interface allows you to display data w.r.t. Sorted format. TreeSet is falling under SortedSet interface. 
+
+
+
+
+
