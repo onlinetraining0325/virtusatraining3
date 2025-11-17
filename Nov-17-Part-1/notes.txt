@@ -1,0 +1,69 @@
+
+
+JDK 8 New Features  
+____________________
+
+
+1) Lambda Expressions
+
+	If you want to write any clear and concise code, then lambda expressions
+are best. It acts as an anonymous method, As they enable passing code as 
+parameters.  
+
+
+You can define lambda expression by using -> operator. 
+
+Interface obj = (parms) -> {writecode};
+
+
+
+2) Functional Interfaces
+
+If an interface contains only one abstract method, that is known as functional interface. You can define functional interface by using @FunctionalInterface annotation. 
+
+
+
+3) Method Reference
+ 
+Allows you to refer a method to another method like a varible. 
+
+Example :
+
+int a=5;
+
+int b = a;
+
+void show() {
+...
+...
+}
+
+interface IData {
+  void display();
+}
+
+
+display = show;
+This  can be done by using object::method_name()
+
+
+
+
+
+
+4) Streams
+
+Allows you to process the collection of objects, as we can sort/filter/map and find max/min, sum avg etc operations. 
+
+In this we have various methods 
+
+	(i) filter : Allows you to display records w.r.t. Particular condition. 
+
+5) Comparable and Comparator
+
+6) Optional Class
+
+7) Date/Time API 
+
+Default Methods 
+
