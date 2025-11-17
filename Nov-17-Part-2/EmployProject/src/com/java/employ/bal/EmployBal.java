@@ -27,6 +27,21 @@ public class EmployBal {
         }
         throw new EmployException(sb.toString());
     }
+
+    public String updateEmployBal(Employ employ) throws EmployException {
+        if (validateEmploy(employ)==true) {
+            return employDao.updateEmployDao(employ);
+        }
+        throw new EmployException(sb.toString());
+    }
+    public Employ searchEmployBal(int empno) {
+        return employDao.searchEmployDao(empno);
+    }
+
+    public String deleteEmployBal(int empno) {
+        return employDao.deleteEmployDao(empno);
+    }
+
     public boolean validateEmploy(Employ employ) {
         boolean isValid = true;
 
