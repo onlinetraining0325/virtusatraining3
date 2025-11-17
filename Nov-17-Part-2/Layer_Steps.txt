@@ -1,0 +1,52 @@
+
+
+Its monolythic application as we have various layers
+
+Why we have layers, as the same application needs to run in web, instead of main() we have web pages. 
+
+First Step Create model in
+
+com.java.employ.model package as
+
+Gender.java
+Employ.java 
+
+Second Step Create Exception class in 
+
+com.java.employ.exception package as
+
+EmployException.java
+
+Third Step is crucial as Data Layer we need to write code 
+
+dao must be in 
+com.java.employ.dao package
+
+EmployDao.java file is an interface that which contains all the operations possible in the project, as it acts as a contract file or menu file. 
+
+
+The interface implementation can be done in EmployDaoImpl.java file 
+
+
+Fourth Step is Call the Dao object in Bal File as EmployBal.java file where we need to write the code for validations. 
+
+it is in com.java.employ.bal package
+
+For AddEmploy and UpdateEmploy we need to call after validations are passed. 
+
+Fifth Step is make main method as
+
+com.java.employ.main in that 
+
+create a file as EmployMain.java 
+
+Call the EmployBal.java in EmployMain.java
+
+The process is
+
+EmployDao to be called in EmployBal -> EmployBal to be called in EmployMain.
+
+
+If web we replace EmployMain with web pages. 
+
+
