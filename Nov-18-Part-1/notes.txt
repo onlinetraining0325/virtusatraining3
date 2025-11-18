@@ -18,3 +18,13 @@ printing and logging etc...
 
 Predicate<Object> obj = (value) -> condition;
 
+Function interface takes on arguments and returns a result. Its commonly used for transforeming data. 
+
+Function<Integer,Integer> obj = (value) -> code;
+
+map() : Transforms each element of stream into another object, resulting in a stream of the same size as input. Its used for one to one transformation. 
+
+flatMap() Transforms each element of stream into zero or more elements, as changing the size of the stream. Itgs used for one to many transformation.s and flattening nested structures.
+
+
+
