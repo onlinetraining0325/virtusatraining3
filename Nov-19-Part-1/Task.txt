@@ -1,0 +1,28 @@
+LeaveDetails.java
+__________________
+
+leaveId (int)
+empId (int)
+leaveStartDate (java.util.Date) 
+leaveEndDate (java.util.Date)
+noOfDays (int)
+appliedOn (java.util.Date)
+leaveReason (String)
+
+-> Add Leave
+-> Show Leave
+-> Update Leave
+-> Delete Leave
+-> Show Leave
+
+
+Data Layers Operations : 
+
+noOfdays to be updated at the time of add/update
+appliedOn to be today's date 
+
+validations :
+____________
+leaveStartDate cannot be yesterday
+leaveEndDate cannot be Yesterday
+leaveStartDate cannot be greater than leaveEndDate
