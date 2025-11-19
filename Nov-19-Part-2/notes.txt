@@ -1,0 +1,38 @@
+
+
+Java Concurrency 
+
+How to implement parallel programming, as run several programs or applications parallely, then we need this one.  For this we need to use java.util.Concurrency package.  
+
+Main Components/Utilities of Concurrent Package 
+_________________________________________________
+
+
+A Future represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation. The result can only be retrieved using method get when the computation has completed, blocking if necessary until it is ready. Cancellation is performed by the cancel method. Additional methods are provided to determine if the task completed normally or was cancelled. Once a computation has completed, the computation cannot be cancelled. If you would like to use a Future for the sake of cancellability but not provide a usable result, you can declare types of the form Future<?> and return null as a result of the underlying task
+
+1) Executor
+
+	Set of interfaces that represents an object whose implementation execs the task.
+
+2) ExecutorService  : Allows you to create pool of threads 
+
+You can create pool of threads as 
+
+ExecutorService service = Executors.newFixedThreadPool(3);
+
+If you want to make any asynchronous tasks to be performed, then we need to use Future. 
+
+Means 3 threads will be created at once. 
+
+Here we need to use submit() as void type which used to run any async tasks. 
+
+3) ScheduledExecutorService
+
+4) Future
+
+@FunctionalInterface 
+public interface Callable<V>
+ 
+A task that returns a result and may throw an exception. Implementors define a single method with no arguments called call.
+The Callable interface is similar to java.lang.Runnable, in that both are designed for classes whose instances are potentially executed by another thread. A Runnable, however, does not return a result and cannot throw a checked exception.
+The Executors class contains utility methods to convert from other common forms to Callable classes.
