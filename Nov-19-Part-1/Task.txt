@@ -13,7 +13,7 @@ leaveReason (String)
 -> Show Leave
 -> Update Leave
 -> Delete Leave
--> Show Leave
+-> Search Leave
 
 
 Data Layers Operations : 
