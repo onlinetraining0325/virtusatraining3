@@ -1,0 +1,70 @@
+1) What is Maven
+
+Maven is build tool,  allows you to 
+
+	-> Create a proper Project Structure
+
+	-> We have predefined templates w.r.t. Relevant projects, 	
+
+	Example : for console, web, mvc, spring boot, microservices
+
+	we have predefined templates are available, w.r.t. that
+	we can get the project structure and default code 
+
+
+When you create a maven project it asks for
+
+groupId : To which category it belongs 
+
+artifactId : It is the name of the project, as what is the name of 
+the project we need to give to that
+
+package
+
+version
+
+
+How maven works
+
+When you run the project, at first it scans the pom.xml file
+
+as POM (Project Object Model) it is the heart for the maven project, which contains all
+
+dependencies, plugins required to run the project
+
+
+Once it scans it checks the dependencies in 
+
+1) Local Repository (.m2) folder which located in
+
+c:\users\user_name folder 
+
+if the dependency information not found in local, then it hits central repo
+
+https://repo.maven.apache.org/maven2/archetype-catalog.xml
+
+2) Central Repository
+
+if its not found in central it gets downloaded from internet that is of remote repository.
+3) Remote Repository
+
+Please add all dependencies in 
+
+<Dependencies> tag only
+
+It contains various options 
+https://repo.maven.apache.org/maven2/archetype-catalog.xml	
+
+ <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <version>1.3</version>
+      <scope>test</scope>
+    </dependency>
+
+
+<dependency>
+   <groupId>com.mysql</groupId>
+   <artifactId>mysql-connector-j</artifactId>
+   <version>8.0.33</version>
+</dependency>
