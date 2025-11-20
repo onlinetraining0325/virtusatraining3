@@ -1,0 +1,31 @@
+
+What is Synchronized 
+
+As compared with synchronized, lock is more flexible and sophisticated thread synchronized mechanism than the standard. 
+
+The Lock interface has been around in java.util.Concurrency package, it provides extensive operartion for locking. 
+
+
+Differences between Synchronized and Lock 
+
+Synchronized frully contained within a method, wher lock 
+API lock() and unlock() operation in separate method. 
+
+A thread gets blocked by using synchronized block, where Lock API
+provides tryLock() method.  The thread acquires lock only if its available and not held by any other thread. 
+
+So by using lock() we can manage fairness of the code. 
+
+We have various methods as 
+
+lock() : Applies lock() if its available, if the lock is not available, the thread gets blocked until the lock is present. 
+
+tryLock() : APplies the lock immediately. 
+
+unlock() : Unlock the locked thread. 
+
+One of the major class we have in locking is 
+
+ReentrantLock : Its from Lock interface, it offers same concurrency and memory semantic as the implicit monitor lock accessed. 
+
+
