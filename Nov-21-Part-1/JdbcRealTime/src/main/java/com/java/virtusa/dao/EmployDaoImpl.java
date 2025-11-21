@@ -57,4 +57,45 @@ public class EmployDaoImpl implements EmployDao {
     }
     return employ;
   }
+
+  @Override
+  public String addEmployDao(Employ employ) throws SQLException, ClassNotFoundException {
+     String cmd = "Insert into Employ(empno,name,gender,dept,desig,basic) values(?,?,?,?,?,?)";
+     con = ConnectionHelper.getConnection();
+     pst = con.prepareStatement(cmd);
+     pst.setInt(1,employ.getEmpno());
+     pst.setString(2,employ.getName());
+     pst.setString(3,employ.getGender().toString());
+     pst.setString(4,employ.getDept());
+     pst.setString(5,employ.getDesig());
+     pst.setDouble(6,employ.getBasic());
+     pst.executeUpdate();
+     return "Employ Record Inserted...";
+  }
+
+  @Override
+  public String updateEmployDao(Employ employ) throws SQLException, ClassNotFoundException {
+    String cmd = "Update Employ Set Name = ?, Gender = ?, Dept = ?, Desig = ?, Basic = ? WHERE Empno = ?";
+    con = ConnectionHelper.getConnection();
+    pst = con.prepareStatement(cmd);
+
+    pst.setString(1,employ.getName());
+    pst.setString(2,employ.getGender().toString());
+    pst.setString(3,employ.getDept());
+    pst.setString(4,employ.getDesig());
+    pst.setDouble(5,employ.getBasic());
+    pst.setInt(6,employ.getEmpno());
+    pst.executeUpdate();
+    return "Employ Record Updated...";
+  }
+
+  @Override
+  public String deleteEmployDao(int empno) throws SQLException, ClassNotFoundException {
+    String cmd = "delete From Employ where empno = ?";
+    con = ConnectionHelper.getConnection();
+    pst = con.prepareStatement(cmd);
+    pst.setInt(1, empno);
+    pst.executeUpdate();
+    return "Employ Record Deleted...";
+  }
 }
