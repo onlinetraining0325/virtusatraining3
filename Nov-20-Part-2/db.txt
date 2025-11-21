@@ -1,0 +1,63 @@
+Database : A database is set of interrelated files stored with
+min. redundancy to serve many users work concurrently. 
+
+DBMS : The software that which allows you to perform transactions
+on data like adding new data, modifying already existing data
+and removing unwanted data known as DBMS. 
+
+Objectives : 
+
+	(i) Provides an efficient and convenient env, that which 
+allows you to store data in and retrieve data
+
+	(ii) Granting Access on Data to users based on their credentials
+
+
+Drawbacks : 
+___________
+
+(i) Data Redundancy
+
+(ii) Risk to Data Integrity
+
+(iii) Data Isolation
+
+(iv) Difficult Access to Data
+
+(v) Unsatisfactory Security Measures 
+
+
+Relational Model the concept of tables came into the picture,
+
+as Table contains data w.r.t Rows and Columns.  No.of rows are called cardinality and No.of attributes are called Degree of the table. 
+
+Relational System identifies data w.r.t. Keys. 
+
+There are various types of keys as 
+
+Employ(Empno,Ename,job,Salary,SalaryDate,AadharNo)
+
+(i) Candidate Key : Any key that which uniquely identifies rows of table known as candidate key. (Empno, AadharNo)
+
+(ii) Primary Key : One of the candidate key needs to be chosen as primary key based on priority. (Empno) { Primary Key cannot be NULL, No Duplicate}
+
+(iii) Composite Key : Any key that which uniquely identifies rows of a table made up of more than one attribute known as composite key (Empno+SalaryDate) 
+
+(iv) Alternate Key : Any key that which is Candidate Key but not primary key known as alternate key (AadharNo)
+
+(v) Foreign Key : Primary key in the parent table will be foreign key in child table. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
