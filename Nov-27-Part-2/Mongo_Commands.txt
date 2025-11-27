@@ -1,0 +1,358 @@
+Microsoft Windows [Version 10.0.19041.264]
+(c) 2020 Microsoft Corporation. All rights reserved.
+
+C:\Users\ADMIN>cd C:\Program Files\MongoDB\Server\5.0\bin
+
+C:\Program Files\MongoDB\Server\5.0\bin>mongo.exe
+MongoDB shell version v5.0.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("9f942796-8955-45be-b166-4c916b2a2d8b") }
+MongoDB server version: 5.0.6
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-03-24T11:05:56.437+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+        2022-03-24T11:05:56.438+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> db.help()
+DB methods:
+        db.adminCommand(nameOrDocument) - switches to 'admin' db, and runs command [just calls db.runCommand(...)]
+        db.aggregate([pipeline], {options}) - performs a collectionless aggregation on this database; returns a cursor
+        db.auth(username, password)
+        db.commandHelp(name) returns the help for the command
+        db.createUser(userDocument)
+        db.createView(name, viewOn, [{$operator: {...}}, ...], {viewOptions})
+        db.currentOp() displays currently executing operations in the db
+        db.dropDatabase(writeConcern)
+        db.dropUser(username)
+        db.eval() - deprecated
+        db.fsyncLock() flush data to disk and lock server for backups
+        db.fsyncUnlock() unlocks server following a db.fsyncLock()
+        db.getCollection(cname) same as db['cname'] or db.cname
+        db.getCollectionInfos([filter]) - returns a list that contains the names and options of the db's collections
+        db.getCollectionNames()
+        db.getLastError() - just returns the err msg string
+        db.getLastErrorObj() - return full status object
+        db.getLogComponents()
+        db.getMongo() get the server connection object
+        db.getMongo().setSecondaryOk() allow queries on a replication secondary server
+        db.getName()
+        db.getProfilingLevel() - deprecated
+        db.getProfilingStatus() - returns if profiling is on and slow threshold
+        db.getReplicationInfo()
+        db.getSiblingDB(name) get the db at the same server as this one
+        db.getWriteConcern() - returns the write concern used for any operations on this db, inherited from server object if set
+        db.hostInfo() get details about the server's host
+        db.isMaster() check replica primary status
+        db.hello() check replica primary status
+        db.killOp(opid) kills the current operation in the db
+        db.listCommands() lists all the db commands
+        db.loadServerScripts() loads all the scripts in db.system.js
+        db.logout()
+        db.printCollectionStats()
+        db.printReplicationInfo()
+        db.printShardingStatus()
+        db.printSecondaryReplicationInfo()
+        db.rotateCertificates(message) - rotates certificates, CRLs, and CA files and logs an optional message
+        db.runCommand(cmdObj) run a database command.  if cmdObj is a string, turns it into {cmdObj: 1}
+        db.serverStatus()
+        db.setLogLevel(level,<component>)
+        db.setProfilingLevel(level,slowms) 0=off 1=slow 2=all
+        db.setVerboseShell(flag) display extra information in shell output
+        db.setWriteConcern(<write concern doc>) - sets the write concern for writes to the db
+        db.shutdownServer()
+        db.stats()
+        db.unsetWriteConcern(<write concern doc>) - unsets the write concern for writes to the db
+        db.version() current version of the server
+        db.watch() - opens a change stream cursor for a database to report on all  changes to its non-system collections.
+> db.stats()
+{
+        "db" : "test",
+        "collections" : 0,
+        "views" : 0,
+        "objects" : 0,
+        "avgObjSize" : 0,
+        "dataSize" : 0,
+        "storageSize" : 0,
+        "totalSize" : 0,
+        "indexes" : 0,
+        "indexSize" : 0,
+        "scaleFactor" : 1,
+        "fileSize" : 0,
+        "fsUsedSize" : 0,
+        "fsTotalSize" : 0,
+        "ok" : 1
+}
+> use mydb
+switched to db mydb
+> db
+mydb
+> use sampledb
+switched to db sampledb
+> db
+sampledb
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> db.mydb.insert({"name":"Manisha"})
+WriteResult({ "nInserted" : 1 })
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+sampledb  0.000GB
+> use mydb
+switched to db mydb
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+sampledb  0.000GB
+> db.mydb.insertOne({"name":"Manisha"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("623c0680ef713c303c7f3dd6")
+}
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+mydb      0.000GB
+sampledb  0.000GB
+> db
+mydb
+> db.dropDatabase()
+{ "ok" : 1 }
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+sampledb  0.000GB
+> use sampledb
+switched to db sampledb
+> db.dropDatabase()
+{ "ok" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use sampleCollection
+switched to db sampleCollection
+> db.createCollection("samplecollection")
+{ "ok" : 1 }
+> show collections
+samplecollection
+> db.sampleCollection.insertOne({"id":"A890"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("623c122eef713c303c7f3dd7")
+}
+> show collections
+sampleCollection
+samplecollection
+
+> db.createCollection("myCollection1",{capped:true,autoIndexId:true,size:435800,max:20000})
+{
+        "note" : "The autoIndexId option is deprecated and will be removed in a future release",
+        "ok" : 1
+}
+> show collections
+myCollection1
+sampleCollection
+samplecollection
+> db.myCollection1.insert({"bookname":"Java"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+myCollection1
+sampleCollection
+samplecollection
+> show dbs
+admin             0.000GB
+config            0.000GB
+local             0.000GB
+sampleCollection  0.000GB
+> use sampleCollection
+switched to db sampleCollection
+
+> show collections
+myCollection1
+sampleCollection
+samplecollection
+> db.myCollection1.drop()
+true
+> show collections
+sampleCollection
+samplecollection
+>
+
+
+________________________________________________________________________________
+
+Mongodb is a cross-platform document oriented database, which provides
+
+	high performance
+
+	High Availability
+
+	and easy scalability 
+
+	
+The Database we call as database
+
+Table in RDBMS as Collection 
+
+Tuple/Row we call as Document
+
+Column we call as Field
+
+Table Join w.r.t. Embedded documents
+
+Primary will be provided automatically in Mongodb
+
+show dbs -> Displays all databases 
+
+to create or move to database give the command as
+
+use practice
+
+to see the current database give the command as
+
+db
+
+Create collection and add data 
+
+db.emp.insert({"empno":1,"name":"Prasanna","basic":58844});
+
+
+To see the list of collections, please give the command as
+
+show collections
+
+To see the list of documents, give the command as
+
+db.emp.find()
+
+
+db.emp.insert([
+ {
+     empno:2,
+     name:"Subhadeep",
+     basic:88234
+ },
+ {
+    empno:3,
+    name:"Hari Srinivas",
+    basic:88299
+ }
+ ,
+ {
+   empno:4,
+   name:"Vanaja",
+   basic:78983
+ }
+ ])
+
+__________________________________________________________________________________________
+
+Create Employ table 
+
+ db.employ.insert([
+ {
+    empno:1,
+    name:"Subhadeep",
+    dept:"Java",
+    desig:"Programmer",
+    basic:82234
+ },
+ {
+   empno:2,
+   name:"Vanaja",
+   dept:"Sql",
+   desig:"Manager",
+   basic:88111
+ },
+ {
+   empno:3,
+   name:"Hari Srinivas",
+   dept:"Java",
+   desig:"Programmer",
+   basic:79888
+ },
+ {
+   empno:4,
+   name:"Bhushan",
+   dept:"Angular",
+   desig:"TeamLead",
+   basic:79888
+ },
+ {
+   empno:5,
+   name:"Akash",
+   dept:"Sql",
+   desig:"TeamLead",
+   basic:88112
+ }
+ ])
+
+
+Where clause examples 
+
+db.employ.find({"empno":1}).pretty() -> equals
+
+db.employ.find({"basic":{$lt:80000}}).pretty();
+
+db.employ.find({"basic":{$gt:80000}}).pretty();
+
+db.employ.find({"name":{$in:["Bhushan","Akash","Vanaja"]}}).pretty();
+
+db.employ.find({"name":{$nin:["Bhushan","Akash","Vanaja"]}}).pretty();
+
+______________________
+
+
+Then use:
+
+for (Document d : col.find()) {
+    System.out.println("ID : " + d.getInteger("id"));
+    System.out.println("Name : " + d.getString("name"));
+    System.out.println("Salary : " + d.getDouble("salary"));
+    System.out.println("----------------------------");
+}
+
+✅ 2. Print dynamically for all fields (unknown structure)
+
+If you don’t know the field names in advance:
+
+for (Document d : col.find()) {
+    for (String key : d.keySet()) {
+        System.out.println(key + " : " + d.get(key));
+    }
+    System.out.println("-------------------");
+}
+
+✅ 3. Print as a formatted record
+for (Document d : col.find()) {
+    int id = d.getInteger("id");
+    String name = d.getString("name");
+    double salary = d.getDouble("salary");
+
+    System.out.printf("ID: %d  Name: %s  Salary: %.2f%n", id, name, salary);
+}
