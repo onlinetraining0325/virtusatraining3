@@ -1,0 +1,31 @@
+download mondosh from 
+
+https://www.mongodb.com/try/download/shell
+
+Add this to the path
+
+open command prompt and start as
+
+mongosh
+
+it will open test prompt
+
+-- To see list of databases 
+
+show dbs
+
+-- To create database
+
+use db_name
+
+use virtusa
+
+-- To see current database 
+
+db
+
+The table in Mongodb called as Document 
+
+You can create a document as
+
+db.company.insert({"name":"Virtusa"})
