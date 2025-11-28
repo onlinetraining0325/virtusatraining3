@@ -1,0 +1,91 @@
+Spring 
+
+Spring is a great framework, that which allows you to create any small scale applications to enterprise level applications. 
+
+If you want to make any application as light-weight, and define an application as 
+
+"Loosely Coupled and Tightly Integrated" 
+
+Hi
+
+Welcome to Samsung cc, what is your name
+
+Lokesh
+
+Hello Lokesh how are You
+How can i help you 
+
+Dependency : 
+
+
+class Person {
+   private Job job;
+   private Family family;
+   
+}
+
+class Job {
+
+}
+class Family {
+
+}
+
+private String aadhar;
+private String passportNo;
+
+What is Dependency Injection : Object is not looking for the resources it is depending on. DI is a feature, ensures as soon That is, dependencies are injected into objects as soon as object created. Thus lookups are completely removed from application objects and it can be used outside the container also.  
+
+How to implement Dependency Injection 
+______________________________________
+
+There are 2 types of DI as
+
+1) Constructor Injection
+
+2) Getter and Setter Injection
+
+Assume we have as class as NameBean
+
+  public class NameBean 
+{ 
+     String      name; 
+  
+     public void setName(String a) 
+     { 
+        name = a; 
+     } 
+     public String getName() 
+     { 
+        return name; 
+     } 
+} 
+
+NameBean obj = new NameBean();
+obj.setName("Gaurav");
+
+<bean id="bean1" class="NameBean">
+    <property name="name" value="Gaurav" />
+</bean>
+
+1) BeanFactory
+
+2) ApplicationContext 
+
+ApplicationContext ctx = new ClassPathXmlApplicationContext("xmlfile");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
