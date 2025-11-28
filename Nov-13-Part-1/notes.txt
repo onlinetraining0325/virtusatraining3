@@ -41,6 +41,42 @@ abstract class Abstract_class
 
 1) Write a program to display a number from (1 to 9999) in rowman format
 
+2) Write a Program to print multiplication of 2 numbers (100 digit * 100 digit i want exact value dont use BigInt class) 
+
+interface : Java does not support the concept of multiple inheritance, to achieve this we need the help of interfaces. An interface contains method declaration and the implementation can be done the correspoinding class, you can add more than one interface to the particular class. 
+
+Difference between interface and abstract class
+_______________________________________________
+
+(i) Abstract class contains both abstract and non-abstract methods, where interface contains only abstract methods. 
+
+(ii) Interface methods are public and abstract by default.
+
+(iii) Multiple inheritance can be achieved by using interfaces
+
+(iv) An interface can be called from anywhere to anywhere. 
+
+
+you can define an interface as 
+
+interface interface_name {
+...
+...
+}
+
+interface contains variables that are static and final means final variables cannot be updated. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

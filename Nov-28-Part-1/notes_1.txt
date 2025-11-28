@@ -1,0 +1,749 @@
+✅ 1. MongoDB Basic Shell Commands (CRUD + Aggregation)
+Insert Documents
+db.employ.insertOne({
+  empno: 1,
+  name: "Prasanna",
+  dept: "IT",
+  salary: 55000
+});
+
+db.employ.insertMany([
+  { empno: 2, name: "Kiran", dept: "HR", salary: 45000 },
+  { empno: 3, name: "Malli", dept: "Admin", salary: 50000 }
+]);
+
+Find Documents
+db.employ.find();                          // all
+db.employ.find({ dept: "IT" });            // filter
+db.employ.find({ salary: { $gt: 50000 }}); // condition
+
+Update Documents
+db.employ.updateOne(
+  { empno: 1 },
+  { $set: { salary: 60000 } }
+);
+
+Delete Documents
+db.employ.deleteOne({ empno: 3 });
+
+Aggregation
+db.employ.aggregate([
+  { $group: { _id: "$dept", totalSalary: { $sum: "$salary" } } }
+]);
+
+✅ 2. MongoDB Java Driver Example (Full CRUD)
+Maven Dependency
+<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongodb-driver-sync</artifactId>
+    <version>4.11.1</version>
+</dependency>
+
+Java CRUD Example
+import com.mongodb.client.*;
+import org.bson.Document;
+
+public class MongoDemo {
+    public static void main(String[] args) {
+
+        MongoClient client = MongoClients.create("mongodb://localhost:27017");
+        MongoDatabase db = client.getDatabase("virtusa");
+        MongoCollection<Document> col = db.getCollection("employ");
+
+        // INSERT
+        Document doc = new Document("empno", 101)
+                .append("name", "Prasanna")
+                .append("dept", "IT")
+                .append("salary", 55000);
+        col.insertOne(doc);
+
+        // FIND
+        System.out.println("All Documents:");
+        for (Document d : col.find()) {
+            System.out.println(d.toJson());
+        }
+
+        // UPDATE
+        col.updateOne(new Document("empno", 101),
+                new Document("$set", new Document("salary", 65000)));
+
+        // DELETE
+        col.deleteOne(new Document("empno", 101));
+
+        System.out.println("Done");
+    }
+}
+
+✅ 3. MongoDB Spring Boot Example
+Dependency
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
+
+Model
+@Document(collection = "employ")
+public class Employ {
+    @Id
+    private String id;
+    private int empno;
+    private String name;
+    private String dept;
+    private double salary;
+}
+
+Repository
+public interface EmployRepository extends MongoRepository<Employ, String> {
+    Employ findByEmpno(int empno);
+}
+
+Controller
+@RestController
+@RequestMapping("/employ")
+public class EmployController {
+
+    @Autowired
+    private EmployRepository repo;
+
+    @PostMapping("/add")
+    public Employ add(@RequestBody Employ e) {
+        return repo.save(e);
+    }
+
+    @GetMapping("/all")
+    public List<Employ> all() {
+        return repo.findAll();
+    }
+
+    @GetMapping("/{empno}")
+    public Employ get(@PathVariable int empno) {
+        return repo.findByEmpno(empno);
+    }
+
+    @PutMapping("/update")
+    public Employ update(@RequestBody Employ e) {
+        return repo.save(e);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable String id) {
+        repo.deleteById(id);
+        return "Deleted";
+    }
+}
+
+✅ 4. MongoDB Node.js Example (Express + Mongoose)
+Install
+npm install mongoose express
+
+Server
+const express = require("express");
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost:27017/virtusa");
+
+const Employ = mongoose.model("Employ", {
+  empno: Number,
+  name: String,
+  dept: String,
+  salary: Number
+});
+
+const app = express();
+app.use(express.json());
+
+// Add
+app.post("/add", async (req, res) => {
+  const emp = new Employ(req.body);
+  res.send(await emp.save());
+});
+
+// Show all
+app.get("/all", async (req, res) => {
+  res.send(await Employ.find());
+});
+
+app.listen(3000);
+
+Want specific examples?
+
+I can give you:
+
+✅ Aggregation examples
+✅ Indexing examples
+✅ Java pagination
+✅ Spring Boot + MongoDB REST API (full project)
+✅ Atlas connection example
+✅ Transactions example (MongoDB 4+)
+
+Just tell me what you need!
+
+
+
+📌 1. Show Databases
+show dbs
+
+📌 2. Create / Switch Database
+
+MongoDB creates DB automatically when you insert first data.
+
+use company
+
+📌 3. Show Collections
+show collections
+
+📌 4. Insert Documents
+➤ Insert One
+db.employ.insertOne({
+  empno: 1,
+  name: "Prasanna",
+  dept: "IT",
+  salary: 55000
+});
+
+➤ Insert Many
+db.employ.insertMany([
+  { empno: 2, name: "Kiran", dept: "HR", salary: 45000 },
+  { empno: 3, name: "Malli", dept: "Admin", salary: 50000 }
+]);
+
+📌 5. Find Documents (Read)
+➤ Find All
+db.employ.find()
+
+➤ Pretty Print
+db.employ.find().pretty()
+
+➤ Find with Filter
+db.employ.find({ dept: "IT" })
+
+➤ Conditions
+db.employ.find({ salary: { $gt: 50000 } })
+
+➤ AND
+db.employ.find({ dept: "IT", salary: { $gt: 50000 } })
+
+➤ OR
+db.employ.find({
+  $or: [
+    { dept: "IT" },
+    { salary: { $lt: 40000 } }
+  ]
+})
+
+📌 6. Update Documents
+➤ Update One
+db.employ.updateOne(
+  { empno: 1 },
+  { $set: { salary: 65000 } }
+);
+
+➤ Update Many
+db.employ.updateMany(
+  { dept: "IT" },
+  { $set: { bonus: 5000 } }
+);
+
+📌 7. Delete Documents
+➤ Delete One
+db.employ.deleteOne({ empno: 3 });
+
+➤ Delete Many
+db.employ.deleteMany({ dept: "Admin" });
+
+📌 8. Count Documents
+db.employ.countDocuments()
+
+📌 9. Sort Results
+➤ Ascending
+db.employ.find().sort({ salary: 1 })
+
+➤ Descending
+db.employ.find().sort({ salary: -1 })
+
+📌 10. Limit & Skip
+db.employ.find().limit(5)
+db.employ.find().skip(5)
+db.employ.find().skip(5).limit(5)
+
+📌 11. Aggregation Examples
+➤ Group by department & count employees
+db.employ.aggregate([
+  { $group: { _id: "$dept", totalEmployees: { $sum: 1 } } }
+])
+
+➤ Average salary by department
+db.employ.aggregate([
+  { $group: { _id: "$dept", avgSalary: { $avg: "$salary" } } }
+])
+
+📌 12. Create Index
+db.employ.createIndex({ empno: 1 })
+
+📌 13. Drop Collection & Database
+➤ Drop collection
+db.employ.drop()
+
+➤ Drop database
+db.dropDatabase()
+
+
+_______________________________________________________________________________________
+
+
+Here are clear and useful MongoDB query examples covering CRUD operations, filters, projections, operators, aggregations, and more.
+All examples assume a collection named employees.
+
+✅ 1. Insert Documents
+Insert One
+db.employees.insertOne({
+  empno: 1,
+  name: "John",
+  dept: "IT",
+  salary: 50000
+});
+
+Insert Many
+db.employees.insertMany([
+  { empno: 2, name: "Alice", dept: "HR", salary: 45000 },
+  { empno: 3, name: "Bob", dept: "Finance", salary: 55000 }
+]);
+
+✅ 2. Basic Find Queries
+Find All
+db.employees.find();
+
+Find with Condition
+db.employees.find({ dept: "IT" });
+
+Find with AND
+db.employees.find({ dept: "IT", salary: 50000 });
+
+Find with OR
+db.employees.find({
+  $or: [{ dept: "IT" }, { salary: { $gt: 60000 } }]
+});
+
+✅ 3. Comparison Operators
+Greater Than
+db.employees.find({ salary: { $gt: 50000 } });
+
+Less Than
+db.employees.find({ salary: { $lt: 50000 } });
+
+Between (≥ and ≤)
+db.employees.find({
+  salary: { $gte: 40000, $lte: 60000 }
+});
+
+✅ 4. Projection (Return Selected Fields Only)
+Include fields
+db.employees.find({}, { _id:0, name: 1, dept: 1 });
+
+Exclude _id
+db.employees.find({}, { _id: 0, name: 1 });
+
+✅ 5. Sorting
+Sort Ascending
+db.employees.find().sort({ salary: 1 });
+
+Sort Descending
+db.employees.find().sort({ salary: -1 });
+
+✅ 6. Limit & Skip
+Get Top 5
+db.employees.find().limit(5);
+
+Skip 5, Take Next 5 (Pagination)
+db.employees.find().skip(5).limit(5);
+
+✅ 7. Update Queries
+Update One
+db.employees.updateOne(
+  { empno: 1 },
+  { $set: { salary: 70000 } }
+);
+
+Update Many
+db.employees.updateMany(
+  { dept: "IT" },
+  { $inc: { salary: 5000 } }
+);
+
+✅ 8. Delete Queries
+Delete One
+db.employees.deleteOne({ empno: 3 });
+
+Delete Many
+db.employees.deleteMany({ dept: "HR" });
+
+✅ 9. Aggregation Examples
+Group by Department & Count Employees
+db.employees.aggregate([
+  { $group: { _id: "$dept", total: { $sum: 1 } } }
+]);
+
+Average Salary by Department
+db.employees.aggregate([
+  { $group: { _id: "$dept", avgSalary: { $avg: "$salary" } } }
+]);
+
+Match + Group + Sort
+
+(Employees with salary > 45000)
+
+db.employees.aggregate([
+  { $match: { salary: { $gt: 45000 } } },
+  { $group: { _id: "$dept", total: { $sum: 1 } } },
+  { $sort: { total: -1 } }
+]);
+
+✅ 10. $in, $nin, $exists
+IN
+db.employees.find({ dept: { $in: ["IT", "Finance"] } });
+
+NOT IN
+db.employees.find({ dept: { $nin: ["HR"] } });
+
+Field Exists
+db.employees.find({ bonus: { $exists: true } });
+
+✅ 11. Text Search
+
+(Requires text index)
+
+Create Text Index
+db.employees.createIndex({ name: "text" });
+
+Search
+db.employees.find({ $text: { $search: "John" } });
+
+✅ 12. Regex Search
+Starts with J
+db.employees.find({ name: { $regex: "^J" } });
+
+Contains "an"
+db.employees.find({ name: { $regex: "an", $options: "i" } });
+
+______________________________________________________________________________________
+
+Here are clear and useful MongoDB query examples covering CRUD operations, filters, projections, operators, aggregations, and more.
+All examples assume a collection named employees.
+
+✅ 1. Insert Documents
+Insert One
+db.employees.insertOne({
+  empno: 1,
+  name: "John",
+  dept: "IT",
+  salary: 50000
+});
+
+Insert Many
+db.employees.insertMany([
+  { empno: 2, name: "Alice", dept: "HR", salary: 45000 },
+  { empno: 3, name: "Bob", dept: "Finance", salary: 55000 }
+]);
+
+✅ 2. Basic Find Queries
+Find All
+db.employees.find();
+
+Find with Condition
+db.employees.find({ dept: "IT" });
+
+Find with AND
+db.employees.find({ dept: "IT", salary: 50000 });
+
+Find with OR
+db.employees.find({
+  $or: [{ dept: "IT" }, { salary: { $gt: 60000 } }]
+});
+
+✅ 3. Comparison Operators
+Greater Than
+db.employees.find({ salary: { $gt: 50000 } });
+
+Less Than
+db.employees.find({ salary: { $lt: 50000 } });
+
+Between (≥ and ≤)
+db.employees.find({
+  salary: { $gte: 40000, $lte: 60000 }
+});
+
+✅ 4. Projection (Return Selected Fields Only)
+Include fields
+db.employees.find({}, { name: 1, dept: 1 });
+
+Exclude _id
+db.employees.find({}, { _id: 0, name: 1 });
+
+✅ 5. Sorting
+Sort Ascending
+db.employees.find().sort({ salary: 1 });
+
+Sort Descending
+db.employees.find().sort({ salary: -1 });
+
+✅ 6. Limit & Skip
+Get Top 5
+db.employees.find().limit(5);
+
+Skip 5, Take Next 5 (Pagination)
+db.employees.find().skip(5).limit(5);
+
+✅ 7. Update Queries
+Update One
+db.employees.updateOne(
+  { empno: 1 },
+  { $set: { salary: 60000 } }
+);
+
+Update Many
+db.employees.updateMany(
+  { dept: "IT" },
+  { $inc: { salary: 5000 } }
+);
+
+✅ 8. Delete Queries
+Delete One
+db.employees.deleteOne({ empno: 3 });
+
+Delete Many
+db.employees.deleteMany({ dept: "HR" });
+
+✅ 9. Aggregation Examples
+Group by Department & Count Employees
+db.employees.aggregate([
+  { $group: { _id: "$dept", total: { $sum: 1 } } }
+]);
+
+Average Salary by Department
+db.employees.aggregate([
+  { $group: { _id: "$dept", avgSalary: { $avg: "$salary" } } }
+]);
+
+Match + Group + Sort
+
+(Employees with salary > 45000)
+
+db.employees.aggregate([
+  { $match: { salary: { $gt: 45000 } } },
+  { $group: { _id: "$dept", total: { $sum: 1 } } },
+  { $sort: { total: -1 } }
+]);
+
+✅ 10. $in, $nin, $exists
+IN
+db.employees.find({ dept: { $in: ["IT", "Finance"] } });
+
+NOT IN
+db.employees.find({ dept: { $nin: ["HR"] } });
+
+Field Exists
+db.employees.find({ bonus: { $exists: true } });
+
+✅ 11. Text Search
+
+(Requires text index)
+
+Create Text Index
+db.employees.createIndex({ name: "text" });
+
+Search
+db.employees.find({ $text: { $search: "John" } });
+
+✅ 12. Regex Search
+Starts with J
+db.employees.find({ name: { $regex: "^J" } });
+
+Contains "an"
+db.employees.find({ name: { $regex: "an", $options: "i" } });
+
+
+If you want, I can also give:
+
+✔ MongoDB Java CRUD examples
+✔ MongoDB Spring Boot repository examples
+✔ MongoDB Compass GUI queries
+✔ MongoDB Interview questions with answers
+
+Just tell me.
+
+You said:
+mongodb aggregate examples
+ChatGPT said:
+
+Here are practical and commonly used MongoDB Aggregation Framework examples — from basic to advanced. Perfect for interviews and real-time applications.
+
+✅ 1. Basic Aggregation – Group by Field
+Count employees per department
+db.employ.aggregate([
+  { $group: { _id: "$dept", count: { $sum: 1 } } }
+]);
+
+✅ 2. Sum / Average / Min / Max
+Salary stats by department
+db.employees.aggregate([
+  {
+    $group: {
+      _id: "$dept",
+      totalSalary: { $sum: "$salary" },
+      avgSalary: { $avg: "$salary" },
+      minSalary: { $min: "$salary" },
+      maxSalary: { $max: "$salary" }
+    }
+  }
+]);
+
+✅ 3. Match → Group → Sort
+
+Count employees with salary > 50000
+
+db.employees.aggregate([
+  { $match: { salary: { $gt: 50000 } } },
+  { $group: { _id: "$dept", total: { $sum: 1 } } },
+  { $sort: { total: -1 } }
+]);
+
+✅ 4. Project Specific Fields
+db.employees.aggregate([
+  { $project: { name: 1, dept: 1, salary: 1, yearlySalary: { $multiply: ["$salary", 12] } } }
+]);
+
+✅ 5. Using $addFields
+
+Add a new calculated column:
+
+db.employees.aggregate([
+  { $addFields: { bonus: { $multiply: ["$salary", 0.10] } } }
+]);
+
+✅ 6. Using $lookup (JOIN two collections)
+
+Assume:
+
+employees collection
+
+departments collection
+
+db.employees.aggregate([
+  {
+    $lookup: {
+      from: "departments",
+      localField: "deptId",
+      foreignField: "id",
+      as: "departmentInfo"
+    }
+  }
+]);
+
+✅ 7. Using $unwind (Explode Array)
+
+Assume skills: ["Java", "MongoDB"]:
+
+db.employees.aggregate([
+  { $unwind: "$skills" }
+]);
+
+✅ 8. Group After Unwind
+
+Count how many employees know each skill:
+
+db.employees.aggregate([
+  { $unwind: "$skills" },
+  { $group: { _id: "$skills", total: { $sum: 1 } } }
+]);
+
+✅ 9. Using $facet (Multiple pipelines)
+db.employees.aggregate([
+  {
+    $facet: {
+      "highSalary": [{ $match: { salary: { $gt: 50000 } } }],
+      "lowSalary": [{ $match: { salary: { $lt: 50000 } } }],
+      "total": [{ $count: "count" }]
+    }
+  }
+]);
+
+✅ 10. Pagination using Aggregation
+db.employees.aggregate([
+  { $sort: { empno: 1 } },
+  { $skip: 10 },
+  { $limit: 5 }
+]);
+
+✅ 11. $replaceRoot to flatten document
+
+Assume:
+
+details: { name: "John", age: 30 }
+
+db.employees.aggregate([
+  { $replaceRoot: { newRoot: "$details" } }
+]);
+
+✅ 12. Filter nested array using $filter
+
+Assume:
+
+projects: [
+  { name: "A", hours: 20 },
+  { name: "B", hours: 5 }
+]
+
+db.employees.aggregate([
+  {
+    $project: {
+      name: 1,
+      bigProjects: {
+        $filter: {
+          input: "$projects",
+          as: "p",
+          cond: { $gt: ["$$p.hours", 10] }
+        }
+      }
+    }
+  }
+]);
+
+✅ 13. Find Top N (Top 3 salaries)
+db.employees.aggregate([
+  { $sort: { salary: -1 } },
+  { $limit: 3 }
+]);
+
+✅ 14. Bucket employees by salary range
+db.employees.aggregate([
+  {
+    $bucket: {
+      groupBy: "$salary",
+      boundaries: [0, 30000, 60000, 100000],
+      default: "Above 1L",
+      output: { count: { $sum: 1 } }
+    }
+  }
+]);
+
+✅ 15. Text search inside aggregation
+db.employees.aggregate([
+  { $match: { $text: { $search: "developer" } } },
+  { $project: { name: 1, score: { $meta: "textScore" } } },
+  { $sort: { score: -1 } }
+]);
+
+✅ 16. Conditional field using $cond
+db.employees.aggregate([
+  {
+    $project: {
+      name: 1,
+      salaryLevel: {
+        $cond: { if: { $gt: ["$salary", 50000] }, then: "High", else: "Low" }
+      }
+    }
+  }
+]);
+
+
+

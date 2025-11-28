@@ -23,6 +23,22 @@ classes falling under List interface are
 
 3) SortedSet : This interface allows you to display data w.r.t. Sorted format. TreeSet is falling under SortedSet interface. 
 
+Generics provides an opportunity to protect a field in a class. If you want to make any method as write once and apply for all types then we need the help of generics. Generics will be represented by using <T>, means in place of <T> we can pass 
+
+value types
+reference types
+custom types
+
+Advantages : 
+
+	-> Write Once and apply for all types
+
+	-> Provides the security to the data
+
+	-> No Typecasting
+
+	-> Reduces the size of the code. 
+
 
 
 

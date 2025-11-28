@@ -1,0 +1,59 @@
+db.employ.aggregate([
+   { $group: { _id: "$dept", count: { $sum: 1 },
+		avgSalary: { $avg: "$basic" },
+      minSalary: { $min: "$basic" },
+      maxSalary: { $max: "$basic" }
+} }]);
+
+db.employ.aggregate([
+  {
+    $group: {
+      _id: "$dept",
+      totalSalary: { $sum: "$basic" },
+      avgSalary: { $avg: "$basic" },
+      minSalary: { $min: "$basic" },
+      maxSalary: { $max: "$basic" }
+    }}]);
+
+
+db.employ.aggregate([
+  { $match: { basic: { $gt: 50000 } } },
+  { $group: { _id: "$dept", total: { $sum: 1 } } },
+  { $sort: { total: 1 } }
+]);
+
+db.employ.aggregate([
+   { $match: {basic : {$gt:50000}}},
+   { $group: {_id:
+]);
+
+
+db.employ.aggregate([
+  { $project: { name: 1, dept: 1, basic: 1, yearlySalary: { $multiply: ["$basic", 12] } } }
+]);
+
+db.employ.aggregate([
+  { $addFields: { bonus: { $multiply: ["$basic", 0.10] } } }
+]);
+
+
+db.employ.find({ dept: { $in: ["Java", "Sql"] } });
+
+db.employ.find({ dept: { $nin: ["Java", "Sql"] } });
+
+
+db.employ.find({ bonus: { $exists: true } });
+
+db.employ.find({ basic: { $exists: true } });
+
+db.employ.createIndex({ name: "text" });
+
+db.employees.find({ $text: { $search: "Akash" } })
+
+
+db.employ.find({ name: { $regex: "^L" } });
+
+db.employ.find({ name: { $regex: "ke", $options: "i" } });
+
+
+
