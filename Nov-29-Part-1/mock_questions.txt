@@ -1,0 +1,36 @@
+1) What is OOPS
+
+2) OOPS features
+
+3) Java Features
+
+4) Java Architecture
+
+5) Compiling and Execution procedure of java application
+
+6) What is STACK and HEAP
+
+7) Arrays concept
+
+8) What is Boxing and Unboxing
+
+9) What is Method Overloading
+
+10) Object class methods 
+
+11) What is Constructor 
+
+12) Explain about static in detail (static class, static method
+and static variable static block)
+
+13) Explain about inheritance and polymorphism
+
+14) Abstract class in detail
+
+15) interface methods static, final and default methods 
+
+
+
+
+
+
