@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <beans>
+    <bean id="person1" class="com.java.spr.Person">
+      <property name="id" value="1" />
+      <property name="name" value="Vivek Kumar" />
+      <property name="jobDetails">
+        <bean class="com.java.spr.JobDetails">
+          <property name="job" value="SWE" />
+          <property name="company" value="Virtusa" />
+          <property name="location" value="Bangalore" />
+        </bean>
+      </property>
+      <property name="familyDetails">
+        <bean class="com.java.spr.Family">
+          <property name="city" value="Noida" />
+          <property name="state" value="UP" />
+        </bean>
+      </property>
+    </bean>
+    <bean id="person2" class="com.java.spr.Person">
+      <property name="id" value="2" />
+      <property name="name" value="Harsh Naidu" />
+      <property name="jobDetails">
+        <bean class="com.java.spr.JobDetails">
+          <property name="job" value="SWE" />
+          <property name="company" value="Virtusa" />
+          <property name="location" value="Bangalore" />
+        </bean>
+      </property>
+      <property name="familyDetails">
+        <bean class="com.java.spr.Family">
+          <property name="city" value="Nagpur" />
+          <property name="state" value="MH" />
+        </bean>
+      </property>
+    </bean>
+    <bean id="person3" class="com.java.spr.Person">
+      <property name="id" value="3" />
+      <property name="name" value="Shaili" />
+      <property name="jobDetails">
+        <bean class="com.java.spr.JobDetails">
+          <property name="job" value="SWE" />
+          <property name="company" value="Virtusa" />
+          <property name="location" value="Bangalore" />
+        </bean>
+      </property>
+      <property name="familyDetails">
+        <bean class="com.java.spr.Family">
+          <property name="city" value="Pune" />
+          <property name="state" value="MH" />
+        </bean>
+      </property>
+    </bean>
+  </beans>
+</beans>

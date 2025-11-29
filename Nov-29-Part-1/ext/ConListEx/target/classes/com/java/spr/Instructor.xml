@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+"-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="ins1" class="com.java.spr.Instructor">
+		<constructor-arg value="1" />
+		<constructor-arg value="Prasanna" />
+		<constructor-arg>
+			<list>
+				<value>Archana</value>
+				<value>Subbarayudu</value>
+				<value>Lavanya</value>
+			</list>
+		</constructor-arg>
+		
+	</bean>
+</beans>
