@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="studentOne" class="com.java.spr.Student">
+    <property name="sno" value="1"/>
+    <property name="firstName" value="Lokesh"/>
+    <property name="lastName" value="PUnwani"/>
+  </bean>
+  <bean id="studentTwo" class="com.java.spr.Student">
+    <property name="sno" value="2"/>
+    <property name="firstName" value="Bharathi"/>
+    <property name="lastName" value="M"/>
+  </bean>
+  <bean id="studentThree" class="com.java.spr.Student">
+    <property name="sno" value="3"/>
+    <property name="firstName" value="Akshitha"/>
+    <property name="lastName" value="Merugu"/>
+  </bean>
+  <bean id="beanTrainer" class="com.java.spr.Trainer">
+    <property name="trainerName" value="Prasanna"/>
+    <property name="location" value="Hyderabad"/>
+    <property name="studentList">
+      <list>
+        <ref bean="studentOne"/>
+        <ref bean="studentTwo"/>
+        <ref bean="studentThree"/>
+      </list>
+    </property>
+  </bean>
+</beans>
