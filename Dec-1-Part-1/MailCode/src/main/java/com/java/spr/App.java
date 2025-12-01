@@ -1,0 +1,12 @@
+package com.java.spr;
+
+public class App {
+
+  public static void main(String[] args) {
+//    System.out.println("Hello World!");
+    MailSend.send("lokeshpunwani29@gmail.com","My irst Message java program","Thank You All for Mail Code");
+  }
+
+
+
+}
