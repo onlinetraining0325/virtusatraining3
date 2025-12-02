@@ -1,0 +1,13 @@
+ use virtusasb
+
+db.employ.insertOne({ empno: 1, name: "Harsh", dept: "Java", desig: "Manager", basic: 88424 });
+
+ db.employ.insertOne({ empno: 2, name: "Bharathi", dept: "Java", desig: "Manager", basic: 88424 });
+
+_____________________________________________________________________________________
+
+use virtusaresource
+
+db.resource.insertOne({resourceName:'Laptop',total:12,status:'Available',company:'Virtusa'});
+db.resource.insertOne({resourceName:'Mobile',total:14,status:'Available',company:'Wipro'});
+db.resource.insertOne({resourceName:'NadCard',total:7,status:'Available',company:'Brillio'});

@@ -1,0 +1,224 @@
+Spring Boot Mongo Db Connectity 
+
+Here the good thing is repository generates all crud operations as no need to do any hard code.
+
+Step 1 : 
+
+Create a SB Project and add the dependencies as
+
+web
+data mongodb
+devtools
+
+now replace tomcat with following dependency
+
+	1️⃣ Check Dependencies
+
+Make sure your pom.xml includes:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+
+This is required for embedded Tomcat.
+
+If missing, Tomcat won’t start.
+
+Now in Applicataion.properties write the below connectivity
+
+server.port=1122
+spring.mongodb.uri=mongodb://localhost:27017/
+spring.mongodb.database=virtusaresource
+
+spring.mongodb.uri=mongodb://localhost:27017/
+spring.mongodb.database=virtusasb
+
+Now we need to make a model class 
+
+as create a model class as Employ
+
+package com.java.spr.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "employ")
+public class Employ {
+    @Id
+    private String id;
+
+    private int empno;
+    private String name;
+    private String dept;
+    private String desig;
+    private double basic;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getEmpno() {
+        return empno;
+    }
+
+    public void setEmpno(int empno) {
+        this.empno = empno;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public String getDesig() {
+        return desig;
+    }
+
+    public void setDesig(String desig) {
+        this.desig = desig;
+    }
+
+    public double getBasic() {
+        return basic;
+    }
+
+    public void setBasic(double basic) {
+        this.basic = basic;
+    }
+}
+
+@Document(collection = "employ") -> As name ensures Employ.java directly connects to "employ" table in MongoDb 
+
+@Id is the primary key 
+
+Step 3 : We need to make any interface as EmployRepository as
+
+@Repository
+public interface EmployRepository extends MongoRepository<Employ, String>
+{
+    Employ findByEmpno(int empno);
+}
+
+
+Ensures Employ class contains StringData Type as primary key. 
+
+as This repo generates all CRUD methods 
+
+now i want to write once code to search By Empno for that we wrote as
+
+ Employ findByEmpno(int empno);
+
+
+Then we need to make a service layer, where we need to call the repository methods.
+
+package com.java.spr.service;
+
+import com.java.spr.model.Employ;
+import com.java.spr.repo.EmployRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class EmployService {
+
+    @Autowired
+    private EmployRepository repository;
+
+    public List<Employ> findAll() {
+        return repository.findAll();
+    }
+
+    public String addEmploy(Employ employ) {
+        repository.save(employ);
+        return "Employ Record Inserted...";
+    }
+    public Employ search(int empno) {
+        return repository.findByEmpno(empno);
+    }
+}
+
+
+@Service annotation ensures its a service class a no DI required to create object.
+
+As @Autowired ensures all dependencies automatically detected.  
+
+findAll()
+
+findByid()
+
+save() 
+
+
+Then we have Controller which takes the endpoint. 
+
+package com.java.spr.controller;
+
+import com.java.spr.model.Employ;
+import com.java.spr.repo.EmployRepository;
+import com.java.spr.service.EmployService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class EmployController {
+
+    @Autowired
+    private EmployService service;
+
+    @PostMapping(value="/addEmploy")
+    public String addEmploy(@RequestBody Employ employ) {
+        return service.addEmploy(employ);
+    }
+
+    @GetMapping(value="/searchEmploy/{id}")
+    public Employ findByEmpno(@PathVariable int id){
+        return service.search(id);
+    }
+
+    @GetMapping(value="/showEmploy")
+    public List<Employ> showEmploy(){
+        return service.findAll();
+    }
+}
+
+
+
+The End Urls are
+http://localhost:8080/showEmploy
+http://localhost:8080/searchEmploy/1
+http://localhost:8080/addEmploy
+{
+    "empno":11,
+    "name":"Raj",
+    "dept":"Java",
+    "desig":"expert",
+    "basic":88324
+}
+
+
+
+
+
+
+
