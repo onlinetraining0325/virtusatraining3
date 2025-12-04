@@ -1,0 +1,52 @@
+@LoadBalancer : This annotation allows that one microservice can be called from multiple ports, 
+
+as reduces the overload on single instance
+
+@RestTemplate : This class allows you to call the deployed services
+from Cloud or any platform. 
+
+RestTemplate object. getForObject() which returns 
+any class/list<class>/string etc...
+
+Gateway 
+
+API gateway of one of the critical component in microservices architecture, acting as a single entry point for client requests. It simplifies communication between clients and multiple microservices by managing routing, security and protocol translation. 
+
+Key Features of API Gateway 
+___________________________
+
+(i) Routing and Load Balancing :  It routes client requests to the appropriate microservice based on predefined rules and balances the load across multiple server instances
+
+(ii) Caching : It caches the requests which are called frequently
+
+(iii) Security : It centralizes security measures like authentication, authorization and 
+encryption etc...
+
+http://localhost:9001/employee/message
+
+http://localhost:9001/employee/trainer
+
+http://localhost:9001/employee/company
+
+http://localhost:9002/customer/show
+
+http://localhost:9002/customer/lunch
+
+http://localhost:9002/customer/topic
+
+___________________________________
+
+Gatewau URLS
+
+http://localhost:9000/employee/company
+
+http://localhost:9000/employee/trainer
+
+http://localhost:9000/employee/message
+
+
+http://localhost:9000/customer/show
+
+http://localhost:9000/customer/lunch
+
+http://localhost:9000/customer/topic
