@@ -1,0 +1,47 @@
+
+
+Microservice is a service oriented archirecture, mean there are large no.of microservices are combined together and executes as a single big service. 
+
+Using Microservices concept, we can implement Load Balancing, Scaling Up and Down of microservices.  We will also learn to centralize the configuration of microservices with Spring Cloud Config Server.  We will implement Eureka Naming Server and Distributed tracing where we can provide env to deploy our services. 
+
+--> Microservices are the small services that work together
+
+--> Microservice architectureal style is an approach to develop a 
+single application as a suite of small services.  Each microservice runs its process and communicates with lightweight mechanisms.  These services are built around business capabilities and independently developed by fully automated deployment machinery. 
+
+
+--> Microservices are exposed by REST
+
+--> These are small well-chosen deployable units
+
+--> The services must be cloud-enabled
+
+CI/CD 
+
+Features : 
+___________
+
+--> Single Responsibility Principle
+
+    This states that a class or module in a program should have only one responsibility.  Any microservice cannot serve more than one responsibility, at a time.
+
+--> Modelled around business domain
+
+    Never restrict itself from accepting appropriate technology stack or database. 
+
+--> Isolate Failure
+
+    The large application can remain mostly unaffected by the failure of a single module. 
+
+--> Infrastructure Automation
+
+    The process of scripting environments.  With the help of scripting env, we can apply the same configuration to a single node or thousands of nodes. 
+
+--> Deploy Independently
+
+     Microservices are platform agnostic. It means we can design and deploy them independently without affecting the other services. 
+
+
+
+
+
