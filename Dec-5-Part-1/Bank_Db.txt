@@ -1,0 +1,29 @@
+use bankproject;
+
+db.account.insertOne({ "accountNo":1, "firstName":"Prasanna", "lastName":"Pappu","city":"Hyderabad","state":"TG","amount":88424.44, "cheqFacil":"YES","accountType":"Savings","status":"ACTIVE","dateOfOpen":"2025-12-05"})
+
+db.trans.InsertOne({"tranAmount":4823,"tranType":"C","accountNo":1,"tranDate":"2025-11-12"});
+
+_____________________________________________________________________________________
+
+http://localhost:8080/withdraw/1/100000
+
+http://localhost:8080/deposit/1/10000
+
+http://localhost:8080/addAccount
+
+{
+   "firstName":"Bharathi",
+   "lastName":"M",
+   "city":"Hyderabad",
+   "state":"TG",
+   "amount":90012,
+   "cheqFacil":"YES",
+   "accountType":"Savings"
+}
+
+http://localhost:8080/showTrans/1
+
+http://localhost:8080/showAccount
+
+http://localhost:8080/search/3
